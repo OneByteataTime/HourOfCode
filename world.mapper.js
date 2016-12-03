@@ -1,17 +1,20 @@
 var WorldMapper = function () { 
  
     var map;
+    var geocoder;
     
     init = function() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 41.319776, lng: -81.626790},
           zoom: 12
-        });    
+        }); 
+        
+        geocoder = new google.maps.Geocoder();
     }
     
     findLocation = function() {
         var address = document.getElementById('address').value;
-        alert('Attempting to find ' + address);
+        //alert('Attempting to find ' + address);
         codeAddress(address);
     }
     
@@ -22,7 +25,7 @@ var WorldMapper = function () {
     function codeAddress(address) {
         
     geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == 'OK') 
+      if (status == 'OK') {
         map.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
             map: map,
