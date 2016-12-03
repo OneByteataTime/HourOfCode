@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Hour of Code</title>
-    <link href="semantic.min.css" type="text/css" rel="stylesheet">
+    <link href="semantic.css" type="text/css" rel="stylesheet">
+    <link href="main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <div class="ui fixed menu">
@@ -20,7 +21,7 @@
         <h1 class="ui header">World Traveller Demo</h1>
         <p>Welcome to our world map finder application</p>
         <div class="ui icon input">
-            <input type="text" placeholder="Enter a location...">
+            <input id="address" type="text" placeholder="Enter a location...">
             <i class="inverted circular search link icon" onclick="javascript:WorldMapper.findLocation();"></i>
         </div>
         <hr/>
@@ -39,8 +40,8 @@
         <a class="item" href="#">Privacy Policy</a>
       </div>
     </div>
-    <script src="jquery.min.js"></script>
-    <script src="semantic.min.js"></script>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="semantic.js"></script>
     <script src="world.mapper.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrS43Ojfbmo7deANt4veljbBBiSkMJnLU&callback=initMap"
     async defer></script>
