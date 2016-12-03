@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hour of Code</title>
+    <link href="semantic.css" type="text/css" rel="stylesheet">
+    <link href="main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="ui fixed menu">
+        <div class="ui container">
+            <a href="#" class="header item">
+                <img class="logo" src="themes/default/assets/images/logo.png"/>
+                World Map App
+            </a>
+            <a href="#" class="item">Home</a>
+        </div>
+  </div>
+    
+    <div class="ui main text container" style="margin-top: 100px;">
+        <h1 class="ui header">World Traveller Demo</h1>
+        <p>Welcome to our world map finder application</p>
+        <div class="ui icon input">
+            <input id="address" type="text" placeholder="Enter a location...">
+            <i class="inverted circular search link icon" onclick="javascript:WorldMapper.findLocation();"></i>
+        </div>
+        
+        <div id="map"></div>
+    
+        <hr/>
+        
+        <button class="ui primary button" onclick="javascript:WorldMapper.viewLocation()">View Streetveiw</button>
+        
+        <div id="street-view"></div>
+        
+    </div>
+    
+    <br/>
+   
+    
+    <div class="ui inverted yellow vertical footer segment">
+        <img src="themes/default/assets/images/logo.png" class="ui centered mini image">
+        <div class="ui horizontal inverted small divided link list">
+        <a class="item" href="#">Site Map</a>
+        <a class="item" href="#">Contact Us</a>
+        <a class="item" href="#">Terms and Conditions</a>
+        <a class="item" href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="semantic.js"></script>
+    <script src="world.mapper.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrS43Ojfbmo7deANt4veljbBBiSkMJnLU&callback=initMap"
+    async defer></script>
+    
+    <script type="text/javascript">
+        
+        function initMap() {
+            WorldMapper.init();
+        }
+        $(document).ready(function(){
+            //WorldMapper.init();
+        });
+    </script>
+</body>
+</html>
