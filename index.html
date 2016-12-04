@@ -7,9 +7,9 @@
     <link href="main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <div class="ui">
-        <div class="ui">
-            <a href="#" class="">
+    <div class="ui inverted fixed red menu">
+        <div class="ui container">
+            <a href="#" class="header item">
                 <img class="logo" src="themes/default/assets/images/logo.png"/>
                 World Traveller
             </a>
@@ -17,29 +17,34 @@
         </div>
   </div>
     
-    <div class="">
-        <h1 class="ui">World Traveller Demo</h1>
-        <p>Welcome to our world traveller application. Enter a location and we will lookup that location and display on a map</p>
-        <div class="ui">
-            <input id="address" type="text" placeholder="Enter a location...">
-            <i class="" ></i>
-        </div>
-        <button>Find my location</button>
+    <div class="ui container main text">
+        <h1 class="ui header">World Traveller Demo</h1>
+        <p>Welcome to our world traveller application. Enter a location and we will lookup that location and display on a map.</p>
         
-        <div>
-            <div id="map.">
+        <div class="ui segment">
+            <div class="ui icon input">
+            <input id="address" type="text" placeholder="Enter a location...">
+            <i class="search link icon circular inverted" ></i>
+        </div>
+        <button class="ui button primary">Find my location</button>
+        
+        </div>
+        
+        <div class="ui segment">
+            <div class="ui horizontal divider">Map</div>
+            <div id="map">
                 <!-- Show map here --> 
                 <p>This is where our map will go!</p>
             </div>
-        
-            <div id="street-view.">
+            <div class="ui horizontal divider">Street View</div>
+            <div id="street-view">
                 <p>This is where our image will go!</p>
             </div>
         </div>
-        
     </div>   
     
-    <div class="ui">
+    <div class="ui divider hidden"></div>
+    <div class="ui inverted black vertical footer segment">
         <img src="themes/default/assets/images/logo.png" class="ui centered mini image">
         <div class="ui">
         <a class="item" href="#">Site Map</a>
