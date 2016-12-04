@@ -7,31 +7,34 @@
     <link href="main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <div class="ui fixed menu">
+    <div class="ui fixed inverted blue menu">
         <div class="ui container">
             <a href="#" class="header item">
                 <img class="logo" src="themes/default/assets/images/logo.png"/>
-                World Map App
+                World Mapper
             </a>
             <a href="#" class="item">Home</a>
         </div>
   </div>
     
-    <div class="ui main text container" style="margin-top: 100px;">
+    <div class="ui main text container">
         <h1 class="ui header">World Traveller Demo</h1>
         <p>Welcome to our world map finder application</p>
         <div class="ui icon input">
             <input id="address" type="text" placeholder="Enter a location...">
             <i class="inverted circular search link icon" onclick="javascript:WorldMapper.findLocation();"></i>
         </div>
-        <hr/>
+        <div class="ui divider"></div>
+        
     </div>
     
     <div id="map" class="ui container">
         
     </div>
     
-    <div class="ui inverted yellow vertical footer segment">
+    <div class="ui divider hidden"></div>
+    
+    <div class="ui inverted vertical footer segment">
         <img src="themes/default/assets/images/logo.png" class="ui centered mini image">
         <div class="ui horizontal inverted small divided link list">
         <a class="item" href="#">Site Map</a>

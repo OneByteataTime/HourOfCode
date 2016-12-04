@@ -6,7 +6,7 @@ var WorldMapper = function () {
     init = function() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 41.319776, lng: -81.626790},
-          zoom: 12
+          zoom: 10
         }); 
         
         geocoder = new google.maps.Geocoder();
@@ -29,12 +29,12 @@ var WorldMapper = function () {
             
             var myPlace = {lat: position.lat(), lng: position.lng()};
             var panorama = new google.maps.StreetViewPanorama(
-            document.getElementById('street-view'),
-            {
-              position: myPlace,
-              pov: {heading: 165, pitch: 0},
-              zoom: 1
-            });
+                document.getElementById('street-view'),
+                {
+                  position: myPlace,
+                  pov: {heading: 165, pitch: 0},
+                  zoom: 1
+                });
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
