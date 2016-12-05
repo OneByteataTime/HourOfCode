@@ -7,34 +7,48 @@
     <link href="main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <div class="ui fixed inverted blue menu">
+    <div class="ui inverted fixed red menu">
         <div class="ui container">
             <a href="#" class="header item">
                 <img class="logo" src="themes/default/assets/images/logo.png"/>
-                World Mapper
+                World Traveller
             </a>
             <a href="#" class="item">Home</a>
         </div>
   </div>
-    
-    <div class="ui main text container">
+
+    <div class="ui container main text">
         <h1 class="ui header">World Traveller Demo</h1>
-        <p>Welcome to our world map finder application</p>
-        <div class="ui icon input">
-            <input id="address" type="text" placeholder="Enter a location...">
-            <i class="inverted circular search link icon" onclick="javascript:WorldMapper.findLocation();"></i>
+        <p>Welcome to our world traveller application. Have you ever wanted to explore
+          the world without leaving your home? Enter a location
+          and we will lookup that location and display on a map.</p>
+
+        <div class="ui segment">
+            <div class="ui icon input">
+              <input id="address" type="text" placeholder="Enter a location..." size="60">
+              <i class="search link icon circular inverted"></i>
+            </div>
+
+            <!-- Get the location the user entered -->
+            <button class="ui button primary"
+              onclick="javascript:findMyLocation();">Find my location</button>
         </div>
-        <div class="ui divider"></div>
-        
+
+        <div class="ui segment">
+            <div class="ui horizontal divider">Map</div>
+            <div id="map">
+                <!-- Show map here -->
+                <p>This is where our map will go!</p>
+            </div>
+            <div class="ui horizontal divider">Street View</div>
+            <div id="street-view">
+                <p>This is where our image will go!</p>
+            </div>
+        </div>
     </div>
-    
-    <div id="map" class="ui container">
-        
-    </div>
-    
+
     <div class="ui divider hidden"></div>
-    
-    <div class="ui inverted vertical footer segment">
+    <div class="ui inverted black vertical footer segment">
         <img src="themes/default/assets/images/logo.png" class="ui centered mini image">
         <div class="ui horizontal inverted small divided link list">
         <a class="item" href="#">Site Map</a>
@@ -43,20 +57,28 @@
         <a class="item" href="#">Privacy Policy</a>
       </div>
     </div>
+
+
     <script src="jquery-3.1.1.min.js"></script>
     <script src="semantic.js"></script>
     <script src="world.mapper.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrS43Ojfbmo7deANt4veljbBBiSkMJnLU&callback=initMap"
     async defer></script>
-    
+
     <script type="text/javascript">
-        
+
         function initMap() {
             WorldMapper.init();
         }
-        $(document).ready(function(){
-            //WorldMapper.init();
-        });
+
+        function findMyLocation() {
+          WorldMapper.getLocationMap();
+        }
+
+        function viewMyLocation() {
+          WorldMapper.viewLocation();
+        }
+
     </script>
 </body>
 </html>
