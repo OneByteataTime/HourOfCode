@@ -20,29 +20,36 @@ var WorldMapper = function () {
         getCoordinates(location);
     }
 
-    viewLocation = function() {
-        var address = document.getElementById('address').value;
-        geocodeAddress(address);
+    getTerrainMap = function() {
+        showTerrainMap();
     }
 
-    function geocodeAddress(address) {
-        geocoder.geocode( { 'address': address}, function(results, status) {
-          if (status == 'OK') {
-            var position = results[0].geometry.location;
+    viewLocation = function() {
+        showStreetview();
+    }
 
-            var myPlace = {lat: position.lat(), lng: position.lng()};
-            var panorama = new google.maps.StreetViewPanorama(
-                document.getElementById('street-view'),
-                {
-                  position: myPlace,
-                  pov: {heading: 165, pitch: 0},
-                  zoom: 1
-                });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
+    function showStreetview() {
+        var panorama = new google.maps.StreetViewPanorama(
+          document.getElementById('street-view'),
+          {
+            position: map.getCenter(),
+            pov: {heading: 165, pitch: 0},
+            zoom: 1
           }
-        });
-        }
+        );
+        streetviewLoaded();
+    }
+
+    function showTerrainMap() {
+      var terrainMap = new google.maps.Map(document.getElementById('terrain-view'), {
+        center: map.getCenter(),
+        zoom: 10,
+        streetViewControl: false,
+        mapTypeControl: false,
+        mapTypeId: 'terrain'
+      });
+      terrainLoaded();
+    }
 
     // Convert location into Geo-Coordinates
     function getCoordinates(location) {
@@ -52,6 +59,7 @@ var WorldMapper = function () {
             myPosition = {lat: position.lat(), lng: position.lng()};
             refreshMap();
             addMarker();
+            mapLoaded();
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
@@ -72,6 +80,7 @@ var WorldMapper = function () {
     return {
         init: init,
         getLocationMap: getLocationMap,
-        viewLocation: viewLocation
+        viewLocation: viewLocation,
+        getTerrainMap: getTerrainMap
     };
 }();

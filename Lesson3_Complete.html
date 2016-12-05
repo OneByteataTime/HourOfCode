@@ -45,6 +45,10 @@
             <div id="street-view">
                 <p>This is where our image will go!</p>
             </div>
+            <div class="ui horizontal divider">Terrain View</div>
+            <div id="terrain-view">
+              <p>Terrain view goes here</p>
+            </div>
         </div>
     </div>
 
@@ -79,14 +83,16 @@
 
         function mapLoaded() {
           WorldMapper.viewLocation();
+          toastr.success("Map loaded...", "World Mapper");
         }
 
         function streetviewLoaded() {
-
+            WorldMapper.getTerrainMap();
+            toastr.success("Street view loaded...", "World Mapper");
         }
 
         function terrainLoaded() {
-
+          toastr.success("Terrain map loaded...", "World Mapper");
         }
 
         $( document ).ready(function() {

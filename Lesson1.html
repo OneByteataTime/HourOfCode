@@ -5,6 +5,7 @@
     <title>Hour of Code</title>
     <link href="semantic.css" type="text/css" rel="stylesheet">
     <link href="main.css" type="text/css" rel="stylesheet">
+    <link href="toastr.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <div class="ui inverted fixed red menu">
@@ -21,7 +22,7 @@
         <h1 class="ui header">World Traveller Demo</h1>
         <p>Welcome to our world traveller application. Have you ever wanted to explore
           the world without leaving your home? Enter a location
-          and we will lookup that location and display on a map.</p>
+          to begin exploring the World!</p>
 
         <div class="ui segment">
             <div class="ui icon input">
@@ -62,23 +63,53 @@
     <script src="jquery-3.1.1.min.js"></script>
     <script src="semantic.js"></script>
     <script src="world.mapper.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrS43Ojfbmo7deANt4veljbBBiSkMJnLU&callback=initMap"
+    <script src="toastr.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=initMap"
     async defer></script>
 
     <script type="text/javascript">
 
         function initMap() {
-            WorldMapper.init();
+            //WorldMapper.init();
         }
 
         function findMyLocation() {
-          WorldMapper.getLocationMap();
+          //WorldMapper.getLocationMap();
         }
 
-        function viewMyLocation() {
-          WorldMapper.viewLocation();
+        function mapLoaded() {
+          //alert('Done loading map...');
+          //toastr["success"]("Map load successful", "World Mapper");
         }
 
+        function streetviewLoaded() {
+
+        }
+
+        function terrainLoaded() {
+
+        }
+
+
+        $( document ).ready(function() {
+          toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-bottom-left",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+        });
     </script>
 </body>
 </html>
