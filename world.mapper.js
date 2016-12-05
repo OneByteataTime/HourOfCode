@@ -43,10 +43,9 @@ var WorldMapper = function () {
     function showTerrainMap() {
       var terrainMap = new google.maps.Map(document.getElementById('terrain-view'), {
         center: map.getCenter(),
-        zoom: 10,
         streetViewControl: false,
         mapTypeControl: false,
-        mapTypeId: 'terrain'
+        mapTypeId: 'satellite'
       });
       terrainLoaded();
     }
