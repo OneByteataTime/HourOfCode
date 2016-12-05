@@ -20,9 +20,24 @@
 
     <div class="ui container main text">
         <h1 class="ui header">World Traveller Demo</h1>
-        <p>Welcome to our world traveller application. Have you ever wanted to explore
-          the world without leaving your home? Enter a location
-          to begin exploring the World!</p>
+        <div class="ui two column stackable grid container">
+          <div class="column">
+            <div class="ui rotate reveal">
+                <div class="visible content">
+                  <img src="themes/default/assets/images/white-image.png" class="ui small bordered circular image">
+                </div>
+                <div class="hidden content">
+                  <img src="themes/default/assets/images/boy.png" class="ui small bordered circular image">
+                </div>
+            </div>
+          </div>
+          <div class="column">
+            <p>Hi! I'm Steve</p>
+            <p>Welcome to our world traveller application. Have you ever wanted to explore
+              the world without leaving your home? Enter a location
+              to begin exploring the World!</p>
+          </div>
+        </div>
 
         <div class="ui segment">
             <div class="ui icon input">
@@ -64,8 +79,7 @@
     <script src="semantic.js"></script>
     <script src="world.mapper.js"></script>
     <script src="toastr.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=initMap"
-    async defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=initMap"></script>
 
     <script type="text/javascript">
 
