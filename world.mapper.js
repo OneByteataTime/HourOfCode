@@ -1,6 +1,7 @@
 var WorldMapper = function () {
 
     var map;
+    var map2;
     var geocoder;
     var myPosition;
 
@@ -13,6 +14,12 @@ var WorldMapper = function () {
         });
 
         geocoder = new google.maps.Geocoder();
+
+        map2 = new google.maps.Map(document.getElementById('terrain-view'), {
+          streetViewControl: false,
+          mapTypeControl: false,
+          zoom: 14
+        });
     }
 
     getLocationMap = function() {
@@ -28,6 +35,10 @@ var WorldMapper = function () {
         showStreetview();
     }
 
+    toggleMap = function(mapTypeId) {
+      map2.setMapTypeId(mapTypeId);
+    }
+
     function showStreetview() {
         var panorama = new google.maps.StreetViewPanorama(
           document.getElementById('street-view'),
@@ -41,12 +52,14 @@ var WorldMapper = function () {
     }
 
     function showTerrainMap() {
-      var terrainMap = new google.maps.Map(document.getElementById('terrain-view'), {
-        center: map.getCenter(),
-        streetViewControl: false,
+
+      map2.setCenter(map.getCenter());
+      map2.setOptions({
+        streetviewControl: false,
         mapTypeControl: false,
-        mapTypeId: 'satellite'
+        mapTypeId: 'terrain'
       });
+
       terrainLoaded();
     }
 
@@ -80,6 +93,7 @@ var WorldMapper = function () {
         init: init,
         getLocationMap: getLocationMap,
         viewLocation: viewLocation,
-        getTerrainMap: getTerrainMap
+        getTerrainMap: getTerrainMap,
+        toggleMap: toggleMap
     };
 }();

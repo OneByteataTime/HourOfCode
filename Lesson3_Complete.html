@@ -61,6 +61,11 @@
                 <p>This is where our image will go!</p>
             </div>
             <div class="ui horizontal divider">Terrain View</div>
+            <div class="ui buttons">
+              <button class="ui button" onclick="javascript:WorldMapper.toggleMap('terrain');">Terrain</button>
+              <div class="or">or</div>
+              <button class="ui button" onclick="javascript:WorldMapper.toggleMap('satellite');">Satellite</button>
+            </div>
             <div id="terrain-view">
               <p>Terrain view goes here</p>
             </div>
@@ -83,7 +88,7 @@
     <script src="semantic.js"></script>
     <script src="world.mapper.js"></script>
     <script src="toastr.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrS43Ojfbmo7deANt4veljbBBiSkMJnLU&callback=initMap"
     async defer></script>
 
     <script type="text/javascript">
